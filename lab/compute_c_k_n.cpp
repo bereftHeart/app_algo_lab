@@ -22,8 +22,8 @@ void to_prime(int num, int oper){
     }
 }
 
-int cal_cnk(int n, int k){
-    int c = 1;
+long long cal_cnk(int n, int k){
+    long long c = 1;
     for (int i=n-k+1; i<=n; i++)
         to_prime(i, 1);
     for (int i=2; i<=k; i++)
@@ -32,7 +32,7 @@ int cal_cnk(int n, int k){
     for (int i=2; i<=n; i++)
         if (m[i] > 0){
             c = c*pow(i, m[i]);
-            if ()
+            c = c> 1000000007 ? c%1000000007 : c;
             // cout << i << "^" << m[i] << endl;
             // cout << "c=" << c << endl;
         }
@@ -40,7 +40,8 @@ int cal_cnk(int n, int k){
 }
 
 int main(){
-    int n, k, ans;
+    int n, k;
+    long long ans;
     cin >> k >> n;
 
     int j=0;
